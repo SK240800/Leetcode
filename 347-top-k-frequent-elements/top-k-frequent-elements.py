@@ -5,27 +5,19 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        # h={}
-        # for i in nums:
-        #     if i in h:
-        #         h[i]+=1
-        #     else:
-        #         h[i]=1
-        # h=dict(sorted(h.items(),key=lambda x:x[1], reverse=True))
-        # r=list(h.keys())[:k]
-        # return r
-        from collections import Counter
-        # O(1) time 
-        if k == len(nums):
-            return nums
+        h={}
+        ans=[]
+        for i in nums:
+            h[i]=1+h.get(i,0)
         
-        # 1. Build hash map: character and how often it appears
-        # O(N) time
-        count = Counter(nums)   
-        # 2-3. Build heap of top k frequent elements and
-        # convert it into an output array
-        # O(N log k) time
-        return heapq.nlargest(k, count.keys(), key=count.get) 
+        si=sorted(h.items(),key=lambda x:x[1], reverse=True)
+
+        for i in range(k):
+            ans.append(si[i][0])
+        
+        return ans
+   
+
 
 
             
