@@ -1,20 +1,19 @@
 class Solution(object):
-    def __init__(self):
-        self.memo = {}
     def rob(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        self.memo={}
-        return self.r(0,nums)
-    def r(self,i,nums):
-        if i >=len(nums):
+        n= len(nums)
+        if n==0:
             return 0
-        
-        if i in self.memo:
-            return self.memo[i] 
+        if n==1:
+            return nums[0]
+        dp=[0 for _ in range(n+1)]
 
-        ans= max(self.r(i+1,nums),self.r(i+2,nums)+nums[i])
-        self.memo[i]=ans
-        return ans
+        dp[1]=nums[0]
+        dp[2]=max(nums[0],nums[1])
+
+        for i in range(3,n+1):
+            dp[i]=max(dp[i-1],dp[i-2]+nums[i-1])
+        return max(dp[n],dp[n-1])
