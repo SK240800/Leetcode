@@ -13,6 +13,6 @@ class Solution(object):
                 h[i]=j+h[i]
             else:
                 h[i]=j
-        return sorted(h.items())
+        return sorted(h.items(), key=lambda item: item[0])
 
                         
