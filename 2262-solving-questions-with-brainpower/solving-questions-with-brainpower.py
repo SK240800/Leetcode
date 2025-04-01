@@ -6,11 +6,10 @@ class Solution(object):
         
         for i in range(n - 2, -1, -1):
             dp[i] = questions[i][0]
-            skip = questions[i][1]
-            if i + skip + 1 < n:
-                dp[i] += dp[i + skip + 1]
+            sk = questions[i][1]
+            if i + sk + 1 < n:
+                dp[i] += dp[i + sk + 1]
 
-            # dp[i] = max(solve it, skip it)
             dp[i] = max(dp[i], dp[i + 1])
         
         return dp[0]
