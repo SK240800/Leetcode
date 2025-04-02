@@ -6,8 +6,9 @@ class Solution(object):
         """
         n=len(nums)
         r=0
-        for i in range(n):
-            for j in range(i+1,n):
-                for k in range(j+1,n):
-                    r=max(r,(nums[i] - nums[j]) * nums[k])
+        for k in range(2,n):
+            m=nums[0]
+            for j in range(1,k):
+                r=max(r,(m - nums[j]) * nums[k])
+                m=max(m,nums[j])
         return r
