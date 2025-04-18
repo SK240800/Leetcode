@@ -8,7 +8,7 @@ class Solution(object):
         for _ in range(n - 1):
             next_string = ""
             j = 0
-            k = 1
+            k = 0
             while j < len(current_string):
                 while (
                     k < len(current_string)
