@@ -5,7 +5,9 @@ on u.user_id = m.user_id
 group by m.user_id
 order by count(m.rating) desc, u.name
 limit 1)
+
 union all
+
 (select m.title as results
 from MovieRating mr
 join Movies m
