@@ -10,4 +10,4 @@ select case
         count(duration) as call_count,
         sum(duration) as total_duration
 from Calls
-group by person2,person1
+group by person1,person2
