@@ -1,8 +1,7 @@
-select player_id,device_id
-from (select player_id,device_id,
-dense_rank() over (partition by player_id order by event_date ) as dr
-from Activity) as m
-where dr=1
+select distinct player_id,
+first_value(device_id) over (partition by player_id order by event_date asc ) as device_id
+from Activity
+
 
 
 
