@@ -1,10 +1,13 @@
-with cte as (select
+with cte as (
+    select
     (case 
         when user1_id = 1 then user2_id
         when user2_id = 1 then user1_id
     end) as user_id
 from Friendship
-group by user_id )
+group by user_id
+having user_id 
+)
 
 select distinct page_id as recommended_page
 from cte 
