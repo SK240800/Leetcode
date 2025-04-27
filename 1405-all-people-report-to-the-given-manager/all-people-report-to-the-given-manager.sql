@@ -38,5 +38,7 @@ with recursive cte as (
 )
 select employee_id 
 from cte
+order by employee_id;
+
 
 
