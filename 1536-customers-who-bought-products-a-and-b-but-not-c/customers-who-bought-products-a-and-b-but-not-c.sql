@@ -16,7 +16,8 @@
 
 select c.customer_id, customer_name
 from customers c
-left join orders o on c.customer_id = o.customer_id
+left join orders o 
+on c.customer_id = o.customer_id
 group by c.customer_id
 having SUM(product_name='A') > 0
     AND SUM(product_name='B') > 0
