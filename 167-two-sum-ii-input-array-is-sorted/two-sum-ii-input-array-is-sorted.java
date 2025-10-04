@@ -10,10 +10,10 @@ class Solution {
                 return new int[]{low+1, high+1};
             } 
             else if (sum<target){
-                low++;
+                ++low;
             }
             else{
-                high--;
+                --high;
             }
         
         }
