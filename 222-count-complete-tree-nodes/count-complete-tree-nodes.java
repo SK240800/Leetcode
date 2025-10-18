@@ -32,9 +32,8 @@ class Solution {
     public int countNodes(TreeNode root) {
 
         if(root == null) return 0;
-        int c = hf(root,0);
 
-        return c;
+        return hf(root,0);
         
     }
 }
