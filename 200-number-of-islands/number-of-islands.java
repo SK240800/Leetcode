@@ -9,6 +9,8 @@ class Solution {
         }
 
         grid[r][c] = '0';
+
+        
         dfs(grid, r-1,c);
         dfs(grid,r+1,c);
         dfs(grid,r,c-1);
