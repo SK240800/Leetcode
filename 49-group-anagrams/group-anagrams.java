@@ -11,6 +11,5 @@ class Solution {
             ans.get(key).add(s);
         }
         return new ArrayList(ans.values());
-        
     }
 }
