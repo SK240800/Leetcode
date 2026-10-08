@@ -5,11 +5,13 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        h={}
+        map={}
         for i in range(len(nums)):
-            h[nums[i]]=i
-        for i in range(len(nums)):
-            r=target-nums[i]
-            if r in h and h[r]!= i:
-                return [i,h[r]]
-        return False
+            x=target - nums[i]
+            if x in map:
+                return [i,map[x]]
+            map[nums[i]]=i
+        return []
+            
+
+        
